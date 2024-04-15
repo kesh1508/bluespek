@@ -1,0 +1,31 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x60aa0f840df0 .scope module, "mkAttempt" "mkAttempt" 2 29;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "CLK";
+    .port_info 1 /INPUT 1 "RST_N";
+o0x7cf000c52018 .functor BUFZ 1, C4<z>; HiZ drive
+v0x60aa0f8427b0_0 .net "CLK", 0 0, o0x7cf000c52018;  0 drivers
+o0x7cf000c52048 .functor BUFZ 1, C4<z>; HiZ drive
+v0x60aa0f842ba0_0 .net "RST_N", 0 0, o0x7cf000c52048;  0 drivers
+E_0x60aa0f8414c0 .event negedge, v0x60aa0f8427b0_0;
+    .scope S_0x60aa0f840df0;
+T_0 ;
+    %wait E_0x60aa0f8414c0;
+    %delay 0, 0;
+    %vpi_call 2 40 "$display", "Hello world" {0 0 0};
+    %vpi_call 2 41 "$finish", 32'b00000000000000000000000000000000 {0 0 0};
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "mkAttempt.v";
